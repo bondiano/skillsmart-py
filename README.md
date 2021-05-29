@@ -5,4 +5,4 @@
 
 ## Структуры
 
-1. [Односвязанный список](./algorithms/linked_list)
+1. [Односвязанный список](./algorithms/linked_list.py)
