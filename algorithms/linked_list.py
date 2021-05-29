@@ -82,3 +82,21 @@ class LinkedList:
         else:
             newNode.next = afterNode.next
             afterNode.next = newNode
+
+    def sum_two_number_list(self, other_list):
+        """1.8. Напишите функцию, которая получает на вход два связанных списка, состоящие из целых значений, и если их длины равны, возвращает список, каждый элемент которого равен сумме соответствующих элементов входных списков."""
+        if (self.len() != other_list.len()):
+            return
+
+        new_list = LinkedList()
+
+        node = self.head
+        other_node = other_list.head
+        while node is not None:
+            new_node = Node(node.value + other_node.value)
+            new_list.add_in_tail(new_node)
+
+            node = node.next
+            other_node = other_node.next
+
+        return new_list

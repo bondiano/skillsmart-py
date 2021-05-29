@@ -21,7 +21,12 @@ class LinkedList2:
         self.tail = item
 
     def find(self, val):
-        return None  # здесь будет ваш код
+        node = self.head
+        while node is not None:
+            if node.value == val:
+                return node
+            node = node.next
+        return None
 
     def find_all(self, val):
         return []  # здесь будет ваш код

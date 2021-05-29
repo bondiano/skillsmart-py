@@ -95,3 +95,30 @@ def test_insert():
     linked_list.insert(node4, node10)
 
     assert linked_list.tail == node10
+
+
+def test_sum_two_number_list():
+    l1 = [1, 2, 3, 4]
+    linked_list1 = LinkedList()
+    for v in l1:
+        linked_list1.add_in_tail(Node(v))
+
+    l2 = [5, 6, 7, 8]
+    linked_list2 = LinkedList()
+    for v in l2:
+        linked_list2.add_in_tail(Node(v))
+
+    empty_linked_list1 = LinkedList()
+
+    assert not linked_list1.sum_two_number_list(empty_linked_list1)
+
+    sum_linked_list = linked_list1.sum_two_number_list(linked_list2)
+
+    sum_l = [6, 8, 10, 12]
+    sum_linked_list_node = sum_linked_list.head
+    index = 0
+    while sum_linked_list_node is not None:
+        assert sum_linked_list_node.value == sum_l[index]
+
+        index += 1
+        sum_linked_list_node = sum_linked_list_node.next
