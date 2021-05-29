@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "learn_py"
+version = "0.1.0"
+description = ""
+authors = ["bondiano <batbondik0@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
