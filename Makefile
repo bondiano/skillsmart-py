@@ -6,7 +6,7 @@ test:
 	poetry run pytest -s
 
 test-coverage:
-	poetry run pytest --cov-report xml
+	poetry run coverage run -m pytest
 
 build: check
 	poetry build
