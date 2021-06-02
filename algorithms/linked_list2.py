@@ -29,19 +29,75 @@ class LinkedList2:
         return None
 
     def find_all(self, val):
-        return []  # здесь будет ваш код
+        node = self.head
+        result = []
+        while node is not None:
+            if node.value == val:
+                result.append(node)
+            node = node.next
+        return result
 
     def delete(self, val, all=False):
-        pass  # здесь будет ваш код
+        while self.head and self.head.value == val:
+            self.head = self.head.next
+            if self.head is None:
+                self.tail = None
+            if not all:
+                return
+
+        node = self.head
+        prev_node = None
+        while node is not None:
+            if node.value == val:
+                node.next.prev = prev_node
+                prev_node.next = node.next
+                if self.head is None:
+                    self.tail = None
+                if node == self.tail:
+                    self.tail = prev_node
+                if not all:
+                    return
+            else:
+                prev_node = node
+            node = node.next
 
     def clean(self):
-        pass  # здесь будет ваш код
+        self.__init__()
 
     def len(self):
-        return 0  # здесь будет ваш код
+        node = self.head
+        _len = 0
+        while node is not None:
+            _len += 1
+            node = node.next
+
+        return _len
 
     def insert(self, afterNode, newNode):
-        pass  # здесь будет ваш код
+        if afterNode is self.tail:
+            self.add_in_tail(newNode)
+        else:
+            newNode.next = afterNode.next
+            newNode.prev = afterNode
+            afterNode.next.prev = newNode
+            afterNode.next = newNode
 
     def add_in_head(self, newNode):
-        pass  # здесь будет ваш код
+        node = self.head
+        self.head = newNode
+        newNode.next = node
+        node.prev = newNode
+
+    def print(self):
+        node = self.head
+        print("forvard", end=" ")
+        while node:
+            print(node.value, end=" ")
+            node = node.next
+
+        node = self.tail
+        print("back", end=" ")
+        while node:
+            print(node.value, end=" ")
+            node = node.prev
+        print("")
