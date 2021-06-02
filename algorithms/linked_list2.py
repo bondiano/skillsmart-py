@@ -38,28 +38,22 @@ class LinkedList2:
         return result
 
     def delete(self, val, all=False):
-        while self.head and self.head.value == val:
-            self.head = self.head.next
-            if self.head is None:
-                self.tail = None
-            if not all:
-                return
-
-        node = self.head
-        prev_node = None
-        while node is not None:
-            if node.value == val:
-                node.next.prev = prev_node
-                prev_node.next = node.next
-                if self.head is None:
-                    self.tail = None
-                if node == self.tail:
-                    self.tail = prev_node
-                if not all:
-                    return
+        nodes = self.find_all(val)
+        for del_n in (nodes[::-1] if all else nodes[:1]):
+            if del_n is self.head and del_n.next is None:
+                self.clean()
+            elif del_n is self.tail:
+                self.tail = del_n.prev
+                del_n.prev.next = None
+            elif del_n is self.head:
+                self.head = del_n.next
+                del_n.next.prev = None
             else:
-                prev_node = node
-            node = node.next
+                del_n.prev.next = del_n.next
+                del_n.next.prev = del_n.prev
+
+            del_n.prev = None
+            del_n.next = None
 
     def clean(self):
         self.__init__()

@@ -47,6 +47,7 @@ def test_delete():
     assert len(linked_list.find_all(1)) == 1
 
     linked_list.delete(10, True)
+    linked_list.delete(10, True)
 
     assert linked_list.len() == 2
     assert linked_list.head == node0
@@ -56,6 +57,15 @@ def test_delete():
     assert linked_list.len() == 1
     assert linked_list.head == node1
     assert linked_list.tail == node1
+    linked_list.delete(0)
+    linked_list.delete(0)
+    assert linked_list.len() == 1
+
+    linked_list2 = LinkedList2()
+    linked_list2.add_in_tail(Node(0))
+    linked_list2.delete(0)
+    linked_list2.delete(0)
+    assert linked_list2.len() == 0
 
 
 def test_clean():
