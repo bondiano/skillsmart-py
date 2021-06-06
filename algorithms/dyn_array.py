@@ -54,10 +54,11 @@ class DynArray:
       # удаляем объект в позиции i
       self[i] # check IndexError
       index = i
-      while index >= 0:
-        self.array[index - 1] = self.array[index]
-        index -= 1;
-      self.count = self.count - 1
+      new_index = i
+      while new_index < self.count - 1:
+          self.array[new_index] = self.array[new_index + 1]
+          new_index += 1
+      self.count -= 1
       fill_percent = self.count / self.capacity * 100
       capacity = int(
           self.capacity / 1.5 if self.capacity > 16 and fill_percent < 50 else self.capacity

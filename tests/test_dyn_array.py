@@ -58,7 +58,7 @@ def test_delete():
   assert dyn_array.capacity == 32
   assert dyn_array.count == 20
 
-  dyn_array.delete(1)
+  dyn_array.delete(0)
   assert dyn_array.capacity == 32
   assert dyn_array.count == 19
 
