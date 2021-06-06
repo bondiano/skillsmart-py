@@ -21,7 +21,6 @@ def test_insert():
   assert dyn_array.count == 21
 
   dyn_array.insert(4, 200)
-  print(dyn_array.to_list())
 
   assert dyn_array.count == 22
   assert dyn_array[4] == 200
