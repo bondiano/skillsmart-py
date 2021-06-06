@@ -36,21 +36,23 @@ class DynArray:
       if (self.count == i):
         self.append(itm)
       else:
-        self[i]  # check IndexError
+        self[i] # check IndexError
         count = self.count + 1
         if count > self.capacity:
           self.resize(2 * self.capacity)
+
         # move elements forward
-        index = i
-        while index < self.count:
-          self.array[index + 1] = self.array[index]
-          index += 1
+        index = self.count
         self.count += 1
+        while index > i + 1:
+          self.array[index] = self.array[index - 1]
+          index -= 1
+        next_element = self.array[i]
         self.array[i] = itm
 
     def delete(self, i):
       # удаляем объект в позиции i
-      self[i]
+      self[i] # check IndexError
       index = i
       while index >= 0:
         self.array[index - 1] = self.array[index]
@@ -61,3 +63,14 @@ class DynArray:
           self.capacity / 1.5 if self.capacity > 16 and fill_percent < 50 else self.capacity
           )
       self.resize(capacity if capacity > 16 else 16)
+
+    def to_list(self):
+      result = []
+      try:
+        for val in self.array:
+          result.append(val)
+      except ValueError:
+            pass
+      except IndexError:
+            pass
+      return result

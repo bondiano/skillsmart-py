@@ -13,7 +13,6 @@ def test_insert():
     err = str(e)
   assert err == 'Index is out of bounds'
 
-  print(dyn_array.count)
   dyn_array.insert(0, 200)
 
   for el in range(20):
@@ -22,6 +21,7 @@ def test_insert():
   assert dyn_array.count == 21
 
   dyn_array.insert(4, 200)
+  print(dyn_array.to_list())
 
   assert dyn_array.count == 22
   assert dyn_array[4] == 200
@@ -36,6 +36,10 @@ def test_insert():
   assert dyn_array.capacity == 64
   assert dyn_array[8] == 150
 
+  dyn_array.insert(8, 120)
+  assert dyn_array.count == 34
+  assert dyn_array.capacity == 64
+  assert dyn_array[8] == 120
 
 def test_delete():
   dyn_array = DynArray()
