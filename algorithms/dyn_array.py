@@ -33,7 +33,7 @@ class DynArray:
         self.count += 1
 
     def insert(self, i, itm):
-      if (self.count == 1):
+      if (self.count == i):
         self.append(itm)
       else:
         self[i]  # check IndexError
