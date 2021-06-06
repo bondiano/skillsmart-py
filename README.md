@@ -6,3 +6,5 @@
 ## Структуры
 
 1. [Односвязанный список](./algorithms/linked_list.py)
+1. [Двусвязанный список](./algorithms/linked_list2.py)
+1. [Динамический массив](./algorithms/dyn_array.py)

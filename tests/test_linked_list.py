@@ -1,6 +1,7 @@
 """Linked list methods tests."""
 from algorithms.linked_list import LinkedList, Node
 
+# заюзать property-based тесты
 def test_find():
     linked_list = LinkedList()
 
