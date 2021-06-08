@@ -31,4 +31,18 @@ def is_balanced(string: str) -> bool:
     return not brackets_stack.peek()
 
 def postfix_calc(string: str) -> int:
-    return 0
+    operations = {
+        "+": lambda a, b: a + b,
+        "*": lambda a, b: a * b
+    }
+    number_stack = Stack()
+
+    for char in string.split(' '):
+        if char.isdigit():
+            number_stack.push(int(char))
+        elif char == '=':
+            return number_stack.peek()
+        else:
+            a, b = number_stack.pop(), number_stack.pop()
+            result = operations[char](a, b)
+            number_stack.push(result)

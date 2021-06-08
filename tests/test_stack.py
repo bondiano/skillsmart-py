@@ -1,5 +1,5 @@
 """Stack methods tests."""
-from algorithms.stack import Stack, is_balanced
+from algorithms.stack import Stack, is_balanced, postfix_calc
 
 def test_push():
   stack = Stack()
@@ -46,3 +46,7 @@ def test_is_balanced():
   assert not is_balanced("())(")
   assert not is_balanced("))((")
   assert not is_balanced("((())")
+
+
+def test_postfix_calc():
+  assert postfix_calc("8 2 + 5 * 9 + =") == 59
