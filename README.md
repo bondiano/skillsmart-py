@@ -10,3 +10,4 @@
 1. [Динамический массив](./algorithms/dyn_array.py)
 1. [Стек](./algorithms/stack.py)
 1. [Очередь](./algorithms/queue.py), [очередь через стек](./algorithms/queue_on_stack.py)
+1. [Двусторонняя очередь](./algorithms/deque.py)
