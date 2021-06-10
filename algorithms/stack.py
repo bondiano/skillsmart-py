@@ -28,12 +28,14 @@ def is_balanced(string: str) -> bool:
         elif char == ')' and not brackets_stack.pop():
             return False
 
-    return not brackets_stack.peek()
+    return not brackets_stack.size()
 
 def postfix_calc(string: str) -> int:
     operations = {
         "+": lambda a, b: a + b,
-        "*": lambda a, b: a * b
+        "*": lambda a, b: a * b,
+        "/": lambda a, b: b / a,
+        "-": lambda a, b: b - a
     }
     number_stack = Stack()
 
@@ -43,6 +45,7 @@ def postfix_calc(string: str) -> int:
         elif char == '=':
             return number_stack.peek()
         else:
-            a, b = number_stack.pop(), number_stack.pop()
+            a = number_stack.pop()
+            b = number_stack.pop()
             result = operations[char](a, b)
             number_stack.push(result)

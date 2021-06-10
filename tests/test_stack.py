@@ -50,3 +50,4 @@ def test_is_balanced():
 
 def test_postfix_calc():
   assert postfix_calc("8 2 + 5 * 9 + =") == 59
+  assert postfix_calc("8 2 / 4 * 10 - =") == 6
