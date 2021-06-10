@@ -8,3 +8,5 @@
 1. [Односвязанный список](./algorithms/linked_list.py)
 1. [Двусвязанный список](./algorithms/linked_list2.py)
 1. [Динамический массив](./algorithms/dyn_array.py)
+1. [Стек](./algorithms/stack.py)
+1. [Очередь](./algorithms/queue.py), [очередь через стек](./algorithms/queue_on_stack.py)
