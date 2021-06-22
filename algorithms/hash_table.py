@@ -12,13 +12,11 @@ class HashTable:
   def seek_slot(self, value):
     # находит индекс пустого слота для значения, или None
     index = self.hash_fun(value)
-    i = index
-    if self.slots[i] is not None:
-      i = (index + self.step) % self.size
-      while self.slots[i] is not None and index != i:
-        i = (index + self.step) % self.size
-    if self.slots[i] is None:
-      return i
+    while None in self.slots:
+      if self.slots[index] is None:
+        return index
+      else:
+        index = (index + self.step) % self.size
 
 
   def put(self, value):
@@ -27,10 +25,10 @@ class HashTable:
     # возвращается индекс слота или None,
     # если из-за коллизий элемент не удаётся
     # разместить
-    i = self.seek_slot(value)
-    if i is not None:
-      self.slots[i] = value
-    return i
+    index = self.seek_slot(value)
+    if index is not None:
+      self.slots[index] = value
+    return index
 
   def find(self, value):
     # находит индекс слота со значением, или None

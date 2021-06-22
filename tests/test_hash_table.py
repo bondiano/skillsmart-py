@@ -10,3 +10,5 @@ def test_hash_table():
 
   assert hash_table.find(test_str) == test_str_index
   assert hash_table.find('test') == None
+
+  assert not hash_table.seek_slot('test') == None
