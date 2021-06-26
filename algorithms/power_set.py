@@ -3,38 +3,48 @@
 class PowerSet:
   def __init__(self):
     # ваша реализация хранилища
-    self.powerset = []
+    self.storage = []
     pass
 
   def size(self):
-    return 0
     # количество элементов в множестве
+    return len(self.storage)
 
   def put(self, value):
     # всегда срабатывает
-    pass
+    if not self.get(value):
+      self.storage.append(value)
 
   def get(self, value):
     # возвращает True если value имеется в множестве,
     # иначе False
-    return False
+    return value in storage
 
   def remove(self, value):
     # возвращает True если value удалено
     # иначе False
+    if self.get(value):
+      self.storage.remove(value)
+      return True
     return False
 
   def intersection(self, set2):
     # пересечение текущего множества и set2
-    return None
+    new_set = PowerSet()
+
+    return new_set
 
   def union(self, set2):
     # объединение текущего множества и set2
-    return None
+    new_set = PowerSet()
+
+    return new_set
 
   def difference(self, set2):
     # разница текущего множества и set2
-    return None
+    new_set = PowerSet()
+
+    return new_set
 
   def issubset(self, set2):
     # возвращает True, если set2 есть
