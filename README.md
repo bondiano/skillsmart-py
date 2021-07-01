@@ -13,3 +13,5 @@
 1. [Двусторонняя очередь](./algorithms/deque.py)
 1. [Упорядоченный список](./algorithms/ordered_list.py)
 1. [Хэш-таблицы](./algorithms/hash_table.py)
+1. [Ассоциативный массив](./algorithms/native_dictionary.py)
+1. [Множества](./algorithms/power_set.py)

@@ -1,7 +1,6 @@
 """Hash table methods tests."""
 from algorithms.hash_table import HashTable
 
-
 def test_hash_table():
   hash_table = HashTable(17, 1)
 

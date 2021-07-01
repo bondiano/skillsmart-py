@@ -16,7 +16,6 @@ def test_find():
     assert linked_list.find(10) == node10
     assert not linked_list.find(100)
 
-
 def test_find_all():
     linked_list = LinkedList()
 
@@ -28,7 +27,6 @@ def test_find_all():
 
     linked_list.add_in_tail(Node(1))
     assert len(linked_list.find_all(1)) == 2
-
 
 def test_delete():
     linked_list = LinkedList()

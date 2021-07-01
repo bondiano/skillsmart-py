@@ -18,7 +18,7 @@ class PowerSet:
   def get(self, value):
     # возвращает True если value имеется в множестве,
     # иначе False
-    return value in storage
+    return value in self.storage
 
   def remove(self, value):
     # возвращает True если value удалено
@@ -31,12 +31,20 @@ class PowerSet:
   def intersection(self, set2):
     # пересечение текущего множества и set2
     new_set = PowerSet()
+    for value in set2.storage:
+      if self.get(value):
+        new_set.put(value)
 
     return new_set
 
   def union(self, set2):
     # объединение текущего множества и set2
     new_set = PowerSet()
+    new_set.storage = self.storage.copy()
+
+    for value in set2.storage:
+      if not new_set.get(value):
+        new_set.put(value)
 
     return new_set
 
@@ -44,10 +52,21 @@ class PowerSet:
     # разница текущего множества и set2
     new_set = PowerSet()
 
+    for value in self.storage:
+      if not new_set.get(value) and set2.get(value):
+        new_set.put(value)
+
     return new_set
 
   def issubset(self, set2):
     # возвращает True, если set2 есть
     # подмножество текущего множества,
     # иначе False
-    return False
+    if set2.size() > self.size():
+      return False
+
+    for value in set2.storage:
+      if not self.get(value):
+        return False
+
+    return True
