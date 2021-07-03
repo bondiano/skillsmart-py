@@ -35,3 +35,7 @@ def test_power_set():
 
   for value in test_set.storage + test_set_2.storage:
     assert test_set_union.get(value)
+
+  test_set_difference = test_set.difference(test_set_2)
+
+  assert test_set_difference.storage == [0, 1, 2, 3, 4]

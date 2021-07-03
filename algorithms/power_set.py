@@ -51,10 +51,10 @@ class PowerSet:
   def difference(self, set2):
     # разница текущего множества и set2
     new_set = PowerSet()
+    new_set.storage = self.storage.copy()
 
-    for value in self.storage:
-      if not new_set.get(value) and set2.get(value):
-        new_set.put(value)
+    for value in set2.storage:
+      new_set.remove(value)
 
     return new_set
 
